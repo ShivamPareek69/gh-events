@@ -3,7 +3,21 @@ on:
   pull_request:
     types:
       - opened
+    branches:
+      - main
+      - "dev-*" #dev-new, dev-this-is-great-example
+      - "feat/**" #feat/new, feat/this/new
+      #developer/options not be covered by anyone
+    paths-ignore:
+      - ".github/workflows/*"
   workflow_dispatch:
+  push:
+    branches:
+      - main
+      - "dev-*" #dev-new, dev-this-is-great-example
+      - "feat/**" #feat/new, feat/this/new
+      #developer/options not be covered by anyone
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
